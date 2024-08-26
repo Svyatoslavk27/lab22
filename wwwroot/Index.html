@@ -1,0 +1,57 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Category Management</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <h1>Lab2 StoreAPIWebApp</h1>
+    </header>
+
+    <main>
+        <section class="add-category">
+            <h2>Add Category</h2>
+            <form id="add-category-form" onsubmit="addCategory(); return false;">
+                <input type="text" id="add-name" placeholder="Category Name" required>
+                <input type="text" id="add-description" placeholder="Category Description">
+                <button type="submit"><i class="fas fa-plus"></i> Add</button>
+            </form>
+        </section>
+
+        <section id="editCategory" class="edit-category">
+            <h2>Edit Category</h2>
+            <form id="edit-category-form" onsubmit="updateCategory(); return false;">
+                <input type="hidden" id="edit-id">
+                <input type="text" id="edit-name" required>
+                <input type="text" id="edit-description">
+                <button type="submit"><i class="fas fa-save"></i> Save</button>
+                <button type="button" onclick="closeInput()"><i class="fas fa-times"></i> Close</button>
+            </form>
+        </section>
+
+        <p id="error" class="error-message"></p>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+            <tbody id="categories"></tbody>
+        </table>
+    </main>
+
+    <script src="js/lab2.js" asp-append-version="true"></script>
+    <script type="text/javascript">
+        getCategories();
+    </script>
+</body>
+</html>
